@@ -25,5 +25,6 @@ Ideally I would call another Program multiple times, each program would...
 	It would save this result 
 Now a master program would go through each generated result and compute the REAL best norm and best small for each slice
 
-	Why this is faster
+	Why this is faster?
+
 	
