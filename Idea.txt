@@ -1,0 +1,29 @@
+The original program first looped through each slice in the source picture
+	Then opened every picture in the smalls directory and checked the values
+		This was very slow
+	
+The program sped up a LOT when I turned the picture into a list of slices
+	Then opened each small
+	So it opened each small once rather than Pic_Slice_Rows*Pic_Slice_Cols
+	
+For a picture with 3,000 slices and 1,000 smalls:
+	Originally it ran in around 2 minutes
+	With the adjustment it ran in about 8 seconds
+		However this still runs slow with 10,000 slices
+		Not in 80 seconds sadly, but in about 900 seconds
+			Not smart to scale up more, it would only take longer and longer
+
+I have an idea to make this even faster. 
+
+This would make use of calling R multiple times
+Ideally I would call another Program multiple times, each program would...
+	take a selection of the slices given some preset amount 
+		Say 1/10th of the total slices or 1/50th of the total slices
+		but for now lets say 1/n of the slices 
+			for 100 slices with n=10 it would take 10 slices to each program
+	It would do the second version of my code in each instance of R, finding the best small and norms for each small for each slice
+	It would save this result 
+Now a master program would go through each generated result and compute the REAL best norm and best small for each slice
+
+	Why this is faster
+	
